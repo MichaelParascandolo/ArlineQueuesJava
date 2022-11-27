@@ -13,7 +13,7 @@ private int totalWait;
 /** The name of this queue. */
 private String queueName;
 /** The average arrival rate. */
-double arrivalRate;
+private double arrivalRate;
 // Constructor
 /** Construct a PassengerQueue with the given name.
 @param queueName The name of this queue 
@@ -42,6 +42,7 @@ pre: The queue is not empty.
 @param showAll Flag to indicate whether to show detail @return Time passenger is done being served
 */
 public int update(int clock, boolean showAll) {
+    
     Passenger nextPassenger = theQueue.remove();
     int timeStamp = nextPassenger.getArrivalTime();
     int wait = clock - timeStamp;
@@ -57,13 +58,12 @@ public int update(int clock, boolean showAll) {
         return clock + nextPassenger.getProcessingTime();
     }
 public boolean isEmpty() {
-    if(theQueue.size() > 0) {
+    if(theQueue.isEmpty()) {
         return true;
     }
     else {
         return false;
     }
-
 }
 //GET
 public double getTotalWait() {
@@ -74,5 +74,8 @@ public int getNumServed() {
 }
 public int size() {
     return theQueue.size();
+}
+public void setArrivalRate(double arrivalRate) {
+    this.arrivalRate = arrivalRate;
 }
 }

@@ -48,28 +48,29 @@ private void startServe() {
         System.out.println("Time is " + clock + " server is idle");
     }
 } 
-//
 private void enterData() {
     try (Scanner myObj = new Scanner(System.in)) {
         System.out.println("Expected number of frequent flyer arrivals per hour: ");
-        frequentFlyerQueue.arrivalRate = myObj.nextDouble()/60;
-//15
+        // frequentFlyerQueue.arrivalRate = myObj.nextDouble()/60;
+        frequentFlyerQueue.setArrivalRate(myObj.nextDouble()/60);
+// 15
         System.out.println("Expected number of regular passenger arrivals per hour: ");
-        regularPassengerQueue.arrivalRate = myObj.nextDouble()/60;
-//30
+        // regularPassengerQueue.arrivalRate = myObj.nextDouble()/60;
+        regularPassengerQueue.setArrivalRate(myObj.nextDouble()/60);
+// 30
         System.out.println("The maximum number of frequent flyers served between regular passengers: ");
         frequentFlyerMax = myObj.nextInt();
-//5
+// 5
         System.out.println("Enter Max Processing Time In Minutes: ");
         maxProcessingTime = myObj.nextInt();
         Passenger.setMaxProcessingTime(maxProcessingTime);
-//4
+// 4
         System.out.println("Total Simulation Time In Minutes: ");
         totalTime = myObj.nextInt();
-//10
+// 10
         System.out.println("Display Minute By Minute Trace (Y/N): \n");
         char input = myObj.next().charAt(0);
-//y
+// y
         if(input == 'y') {
             //true
             showAll = true;
@@ -84,7 +85,6 @@ private void enterData() {
     }
 
 }
-//
 /** Method to show the statistics. */ 
 private void showStats() {
     System.out.println("\nThe number of regular passengers served was " + regularPassengerQueue.getNumServed());

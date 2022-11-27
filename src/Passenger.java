@@ -1,4 +1,5 @@
 import java.util.Random;
+
 /** A class to represent a passenger. */ 
 public class Passenger {
 // Data Fields
